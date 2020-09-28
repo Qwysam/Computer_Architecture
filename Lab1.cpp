@@ -100,11 +100,11 @@ int main(void)
 
                 End :
         };
+          cout << "Left: " << left_c << "\n";
+          cout << "Right: " << right_c << "\n";
         if (err_a)
             cout << "Overflow error\n";
         else {
-            cout << "Left: " << left_c << "\n";
-            cout << "Right: " << right_c << "\n";
             cout << "Left assembler: " << left_a << "\n";
             cout << "Right assembler: " << right_a << "\n";
         }

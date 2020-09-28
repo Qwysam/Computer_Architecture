@@ -1,10 +1,20 @@
+//+===================================================================
+// File lab_1.cpp
+// Линейная арифметическая программа
+// Вариант 4
+// Эта программа проверяет арифметическое тождество (a-b)^3 = a^3-3a^2b+3ab^2+b^3,
+//где a = a/6, b = b/7
+//Для этого вычисляют значение левой и правой частей этого тождества
+//на С и на ассемблере
+//Жданов В.И.,26.09.2020
+//-===================================================================
 #include <iostream>
 #include <math.h>
 #include <string>
 using namespace std;
-
+//Определение макроконстанты варианта
 # define DENOM 4
-
+//Задание глобальных переменных
 long int a, a1, b, b1, left_c, right_c, left_a, right_a;
 int err, err_a;
 
@@ -13,12 +23,14 @@ int main(void)
     cout << "Input exit to stop the program\n";
     for (;;)
     {
+        //Считывание переменных
         string input;
         cout << "Input a: ";
         cin >> input;
         if (input == "exit")
             break;
         a = stoi(input);
+        //Вычисление выражения на C
         a1 = a / (DENOM + 2);
         cout << "Input b: ";
         cin >> b;
@@ -26,6 +38,7 @@ int main(void)
         err = 0;
         left_c = (a1 - b1) * (a1 - b1) * (a1 - b1);
         right_c = a1 * a1 * a1 - 3 * a1 * a1 * b1 + 3 * a1 * b1 * b1 - b1 * b1 * b1;
+        //Вычисление выражения на ассемблере
         _asm {
             //err_a=0
             mov err_a, 0
@@ -100,10 +113,13 @@ int main(void)
 
                 End :
         };
-          cout << "Left: " << left_c << "\n";
-          cout << "Right: " << right_c << "\n";
+        // Вывод вычислений на C
+        cout << "Left: " << left_c << "\n";
+        cout << "Right: " << right_c << "\n";
+        //Проверка переполнения
         if (err_a)
             cout << "Overflow error\n";
+        //Вывод вычислений на ассемблере 
         else {
             cout << "Left assembler: " << left_a << "\n";
             cout << "Right assembler: " << right_a << "\n";

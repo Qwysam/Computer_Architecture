@@ -21,6 +21,8 @@ int err, err_a;
 int main(void)
 {
     cout << "Input exit to stop the program\n";
+    cout << "Проверить тождество (a-b)= a^3 - 3ba^2 + 3ab^2 - b^3,\n";
+    cout << "где a = a/6, b = b/7\n";
     for (;;)
     {
         //Считывание переменных
@@ -114,15 +116,15 @@ int main(void)
                 End :
         };
         // Вывод вычислений на C
-        cout << "Left: " << left_c << "\n";
-        cout << "Right: " << right_c << "\n";
+        cout << "Left (C): " << left_c << "\n";
+        cout << "Right (C): " << right_c << "\n";
         //Проверка переполнения
         if (err_a)
             cout << "Overflow error\n";
         //Вывод вычислений на ассемблере 
         else {
-            cout << "Left assembler: " << left_a << "\n";
-            cout << "Right assembler: " << right_a << "\n";
+            cout << "Left (Asm): " << left_a << "\n";
+            cout << "Right (Asm): " << right_a << "\n";
         }
     }
     return 0;

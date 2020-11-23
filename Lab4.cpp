@@ -1,4 +1,4 @@
-﻿//+===================================================================
+//+===================================================================
 // File Lab4.cpp
 // Распаковка битовых групп
 //
@@ -35,14 +35,11 @@
 // ! 0 ! mod ! mod
 // +---+------+
 //		   7
-
 //-===================================================================
 #include <iostream>
 #include <iomanip>
 using namespace std;
 unsigned long value;
-unsigned char xxx, www, xxx_a, www_a;
-unsigned short yyy, zzz, yyy_a, zzz_a;
 unsigned char reg2, reg1, w_b, mod, reg2_a, reg1_a, w_b_a, mod_a;
 unsigned short kop, kop_a;
 int main()
@@ -61,7 +58,7 @@ int main()
 		reg1 = (value >> 4) & 0x7f;// выделить 7 битов (10-4) из Value
 		w_b = (value >> 11) & 0x3;// выделить 2 бита (12-11) из Value
 		kop = (value >> 13) & 0xfff;// выделить 12 битов (24-13) из Value
-		mod = (value >> 25) & 0x3f;// выделить 7 битов (31-25) из Value
+		mod = (value >> 25) & 0x7f;// выделить 7 битов (31-25) из Value
 		//============================ Assembler =============================
 		// Выделить битоые группы из числа Value
 		__asm {
@@ -84,7 +81,7 @@ int main()
 			shr eax, 12
 			// выделить 7 битов (31-25) из Value
 			mov mod_a, al
-			and mod_a, 0x3f
+			and mod_a, 0x7f
 		};
 		// Форматный вывод результатов
 		cout << hex

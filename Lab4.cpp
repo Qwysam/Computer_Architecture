@@ -45,7 +45,7 @@ unsigned short kop, kop_a;
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	printf("\n\t\t(C)Жданов В.И., 2012");
+	printf("\n\t\t(C)Жданов В.И., 2020");
 	printf("\n\tРаспаковка битовых групп");
 	for (;;)
 	{

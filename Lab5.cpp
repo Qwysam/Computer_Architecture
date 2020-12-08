@@ -23,6 +23,8 @@ int y, V, V_A;
 int error = 0;
 int main()
 {
+    setlocale(LC_ALL, "Russian");
+    printf("Умножение и деление беззнакового и знакового \nцелого числа на константу\n");
     for (;;)
     {
         // 53/4
@@ -77,8 +79,6 @@ int main()
             printf("\t\tError CF \n");
         }
         //result output
-        printf("Unsigned hexadecimal number C++(Z)\t[%x]", Z);
-        printf("\tUnsigned hexadecimal number Asm(Z_A) :\t[%x]\n", Z_A);
         printf("Unsigned decimal number  C++(Z):\t[%u]", Z);
         printf("\tUnsigned decimal number  Asm (Z_A):\t[%u]\n\n", Z_A);
         //signed calculation
@@ -122,8 +122,6 @@ End2 :
             printf("\t\tError OF \n");
         }
         //result output
-        printf("Signed hexadecimal number C++(V) :\t[%x]", V);
-        printf("\tSigned hexadecimal number Asm(V_A) :\t[%x]\n", V_A);
         printf("Signed decimal number  C++(V) :\t\t[%d]", V);
         printf("\tSigned decimal number Asm(V_A) :\t[%d]\n\n", V_A);
     }

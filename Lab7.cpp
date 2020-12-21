@@ -32,10 +32,7 @@ int main()
 		fscanf_s(fin, "%i\n", &len);
 		// Если массив имеет ненулевую и допустимую длину, читать его
 		if (len == 0 || len > 100)
-		{
-			printf("\nПревышена максимальная длина массива\n");
 			break;
-		}
 		// Копировать файл в массив
 		for (i = 0; i < len; i++) fscanf_s(fin, "%i", &arr[i]);
 		// Сделать копию для ассемблера
@@ -65,21 +62,21 @@ int main()
 				//for (i=0 i<len i++)
 				xor esi, esi
 				mov    ecx, len
-				//for (j=0 j<=len j++) { 
+				//for (j=0 j<=len j++)  
 			L0 :
 				mov edi, 0
 				L1 :
 				//    tmp = arr[j]
 				mov    eax, arr_a[edi * 4]
-				//    if(arr[j]<0) {
+				//    if(arr[j]<0) 
 				cmp eax, 0
 				jge L2
-				//    if(arr[j+1]<0) {            
+				//    if(arr[j+1]<0)            
 				cmp arr_a[edi * 4 + 4], 0
 				jng L2
 				//    arr[j] = arr[j + 1]
 				xchg eax, arr_a[edi * 4 + 4]
-				//    arr[j] = tmp}
+				//    arr[j] = tmp
 				xchg eax, arr_a[edi * 4]
 			L2:
 				inc edi
